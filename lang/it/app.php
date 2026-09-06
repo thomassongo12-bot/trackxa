@@ -1,0 +1,28 @@
+<?php return [
+    'site_name'           => 'TrackXa',
+    'tagline'             => 'Piattaforma Professionale di Tracciamento Spedizioni',
+    // Hero
+    'hero_badge'          => 'Tracciamento in Tempo Reale',
+    'hero_title'          => 'Traccia le tue <span>Spedizioni</span><br>Ovunque, in Qualsiasi Momento',
+    'hero_subtitle'       => 'Piattaforma professionale di tracciamento spedizioni. Monitora i tuoi pacchi in tempo reale con aggiornamenti precisi dalla spedizione alla consegna.',
+    'hero_supports'       => 'Supporta: Numero di tracciamento, Numero di riferimento, Numero d\'ordine',
+    'stat_accuracy'       => 'Precisione',
+    'track_your_shipment' => 'Traccia la tua Spedizione',
+    'enter_tracking'      => 'Inserisci il numero di tracciamento',
+    'track_btn'           => 'Traccia Spedizione',
+    'tracking_number'     => 'Numero di Tracciamento',
+    'status'              => 'Stato',
+    'home'                => 'Home',
+    'blog'                => 'Blog',
+    'contact'             => 'Contatti',
+    'read_more'           => 'Leggi di più',
+    'all_rights_reserved' => 'Tutti i diritti riservati',
+    'send_message'        => 'Invia Messaggio',
+    'latest_news'         => 'Ultime Notizie',
+    // Corrieri
+    'carriers_badge'      => 'I Nostri Corrieri',
+    'carriers_title'      => 'Corrieri Supportati',
+    'carriers_subtitle'   => 'Lavoriamo con i principali corrieri mondiali per permetterti di tracciare qualsiasi pacco, ovunque.',
+    'carriers_visit'      => 'Visita il sito',
+    'carriers_note'       => 'Clicca su un corriere per visitare il suo sito ufficiale.',
+];

@@ -1,0 +1,16 @@
+<?php return [
+    'site_name'           => 'TrackXa',
+    'tagline'             => 'Piattaforma Professionale di Tracciamento Spedizioni',
+    'track_your_shipment' => 'Traccia la tua Spedizione',
+    'enter_tracking'      => 'Inserisci il numero di tracciamento',
+    'track_btn'           => 'Traccia Spedizione',
+    'tracking_number'     => 'Numero di Tracciamento',
+    'status'              => 'Stato',
+    'home'                => 'Home',
+    'blog'                => 'Blog',
+    'contact'             => 'Contatti',
+    'read_more'           => 'Leggi di più',
+    'all_rights_reserved' => 'Tutti i diritti riservati',
+    'send_message'        => 'Invia Messaggio',
+    'latest_news'         => 'Ultime Notizie',
+];

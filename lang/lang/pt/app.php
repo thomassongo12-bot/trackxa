@@ -1,0 +1,17 @@
+<?php return [
+    'site_name'           => 'TrackXa',
+    'tagline'             => 'Plataforma Profissional de Rastreamento de Envios',
+    'track_your_shipment' => 'Rastrear seu Envio',
+    'enter_tracking'      => 'Digite seu número de rastreamento',
+    'track_btn'           => 'Rastrear Envio',
+    'tracking_number'     => 'Número de Rastreamento',
+    'status'              => 'Status',
+    'home'                => 'Início',
+    'blog'                => 'Blog',
+    'contact'             => 'Contato',
+    'read_more'           => 'Leia mais',
+    'all_rights_reserved' => 'Todos os direitos reservados',
+    'send_message'        => 'Enviar Mensagem',
+    'latest_news'         => 'Últimas Notícias',
+    'contact_us'          => 'Entre em Contato',
+];

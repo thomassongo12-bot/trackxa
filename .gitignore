@@ -1,0 +1,22 @@
+# Config sensible (à ne pas committer)
+config/config.php
+
+# Storage (uploads, cache, logs)
+storage/logs/*
+storage/cache/*
+storage/uploads/*
+!storage/logs/.gitkeep
+!storage/cache/.gitkeep
+!storage/uploads/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# XAMPP / serveur local
+*.log
