@@ -8,12 +8,10 @@ class Session {
     private function __construct() {
         if (session_status() === PHP_SESSION_NONE) {
             session_name(SESSION_NAME);
-            // Detect correct cookie path
-            $scriptDir = dirname($_SERVER['SCRIPT_NAME'] ?? '/');
-            $cookiePath = ($scriptDir === '/' || $scriptDir === '\\') ? '/' : $scriptDir . '/';
+            // Always use '/' as cookie path to avoid session loss between GET and POST
             session_set_cookie_params([
                 'lifetime' => 0,
-                'path'     => $cookiePath,
+                'path'     => '/',
                 'domain'   => '',
                 'secure'   => !empty($_SERVER['HTTPS']),
                 'httponly' => true,
