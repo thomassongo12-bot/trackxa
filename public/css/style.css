@@ -32,10 +32,17 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  /* Prevent horizontal scroll on mobile */
+  max-width: 100vw;
+  touch-action: pan-y;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 img { max-width: 100%; height: auto; }
 a { color: var(--tx-primary); text-decoration: none; transition: var(--tx-transition); }
 a:hover { color: var(--tx-accent); }
+/* Prevent any element from causing horizontal overflow */
+.container, .container-fluid { max-width: 100%; }
 
 /* ── Utility ──────────────────────────────────────────────── */
 .tx-gradient    { background: linear-gradient(135deg, var(--tx-primary) 0%, #2563eb 100%); }
