@@ -4,9 +4,32 @@ $si     = $statusInfo;
 $latest = end($history) ?: null;
 $colorMap = ['success'=>'#28a745','danger'=>'#dc3545','warning'=>'#ffc107','primary'=>'#1a3c6e','info'=>'#17a2b8','secondary'=>'#6c757d'];
 $color  = $colorMap[$si['color']] ?? '#6c757d';
-$progressSteps = ['order_received','picked_up','in_transit','out_for_delivery','delivered'];
+
+// All statuses in logical order
+$allStatusOrder = [
+    'order_received','shipment_created','preparing','picked_up',
+    'at_warehouse','in_transit','arrived_airport','departed_airport',
+    'customs_clearance','released_customs','out_for_delivery',
+    'delivered','delivery_failed','returned','cancelled','delayed','on_hold'
+];
+
+// Build progress steps from statuses that actually appear in history + current status
+$historyStatuses = array_unique(array_column($history, 'status'));
+if (!in_array($s['status'], $historyStatuses)) {
+    $historyStatuses[] = $s['status'];
+}
+// Always include start and end anchors
+$anchors = ['order_received'];
+if (in_array('delivered', $historyStatuses)) $anchors[] = 'delivered';
+elseif (in_array('out_for_delivery', $historyStatuses)) $anchors[] = 'out_for_delivery';
+$historyStatuses = array_unique(array_merge($historyStatuses, $anchors));
+
+// Sort by logical order
+$progressSteps = array_values(array_filter($allStatusOrder, fn($st) => in_array($st, $historyStatuses)));
+
+// Find current step index
 $currentIdx = array_search($s['status'], $progressSteps);
-if ($currentIdx === false) $currentIdx = -1;
+if ($currentIdx === false) $currentIdx = 0;
 ?>
 <!-- Track Result Page -->
 <section class="tx-tracking-hero">
@@ -51,9 +74,13 @@ if ($currentIdx === false) $currentIdx = -1;
         <?php
           $stepInfo = $statuses[$step] ?? ['label'=>$step,'icon'=>'fa-circle'];
           $isDone = false; $isActive = false;
-          if ($s['status'] === 'delivered') { $isDone = true; }
-          elseif ($idx < $currentIdx) { $isDone = true; }
-          elseif ($idx === $currentIdx) { $isActive = true; }
+          if ($s['status'] === 'delivered' && $step !== 'delivery_failed' && $step !== 'returned' && $step !== 'cancelled') {
+              $isDone = true;
+          } elseif ($idx < $currentIdx) {
+              $isDone = true;
+          } elseif ($idx === $currentIdx) {
+              $isActive = true;
+          }
         ?>
         <div class="tx-progress-step <?= $isDone?'completed':($isActive?'active':'') ?>">
           <div class="step-icon"><i class="fas <?= $stepInfo['icon'] ?>"></i></div>
